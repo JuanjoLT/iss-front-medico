@@ -5,6 +5,7 @@ import ChangePassword from './components/ChangePassword.vue';
 
 <template>
   <div>
+
     <ChangePassword />
   </div>
 </template>
