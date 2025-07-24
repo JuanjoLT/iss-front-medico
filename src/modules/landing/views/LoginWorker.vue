@@ -46,3 +46,4 @@ function mostrarMensaje() {
     <FooterBar />
   </div>
 </template>
+

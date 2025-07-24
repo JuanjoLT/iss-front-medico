@@ -24,8 +24,8 @@
             v-for="paciente in pacientesMock"
             :key="paciente.id"
             :to="`/PatientDetails`"
-            class="flex justify-between items-center bg-white rounded-md px-4 py-3 mb-3 h-25 shadow cursor-pointer hover:bg-gray-100 transition"
-          >
+
+            class="flex justify-between items-center bg-white rounded-md px-4 py-3 mb-3 h-25 shadow cursor-pointer hover:bg-gray-100 transition">
 
             <div class="flex items-center space-x-3">
               <div
@@ -49,6 +49,7 @@
           <RouterLink to="/Home">
             <button class="bg-[#405F77] hover:bg-[#759AAB] text-white px-6 py-2 rounded-md cursor-pointer">Volver</button>
           </RouterLink>
+
           <RouterLink to="/NewPatient">
             <button class="bg-[#405F77] hover:bg-[#759AAB] text-white px-4 py-2 rounded-md text-sm shadow cursor-pointer">
               Nuevo Paciente

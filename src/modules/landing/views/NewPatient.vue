@@ -45,6 +45,7 @@
                 </div>
                 <div class="text-left">
                     <label class="text-sm text-gray-700 pl-2">Género</label>
+                    
                     <select class="w-full bg-gray-200 rounded-md px-3 py-3 text-sm">
                         <option disabled value="">Seleccione el género</option>
                         <option value="Masculino">Hombre</option>
