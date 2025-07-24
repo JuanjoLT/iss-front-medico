@@ -57,7 +57,7 @@
             </div>
 
             <div class="flex justify-between pt-18">
-                <RouterLink to="/ListingPage">
+                <RouterLink to="/Home">
                   <button class="bg-[#405F77] hover:bg-[#759AAB] text-white px-6 py-2 rounded-md cursor-pointer">Volver</button>
                 </RouterLink>
             </div>
