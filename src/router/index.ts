@@ -29,6 +29,21 @@ const router = createRouter({
       name: 'Profile',
       component: () => import('@/modules/landing/views/Profile.vue'),
     },
+    {
+      path: '/Home',
+      name: 'HomeSecond',
+      component: () => import('@/modules/landing/views/HomeUser.vue'),
+    },
+    {
+      path: '/PatientDetails',
+      name: 'PatientDetails',
+      component: () => import('@/modules/landing/views/PatientDetails.vue'),
+    },
+    {
+      path: '/Daily',
+      name: 'Daily',
+      component: () => import('@/modules/landing/views/Daily.vue'),
+    },
   ],
 });
 

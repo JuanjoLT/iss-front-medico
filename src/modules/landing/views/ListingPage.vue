@@ -21,31 +21,35 @@
         <h2 class="text-3xl font-bold text-center mb-8 text-gray-800">Lista de Pacientes</h2>
         <div class="w-6xl h-140 mx-auto space-y-6 overflow-y-auto">
           <router-link
-            v-for="(patient, index) in patients"
-            :key="index"
-            :to="`/paciente/${patient.name}`"
-            class="flex justify-between items-center bg-white rounded-md px-4 py-3 mb-3 h-25 shadow cursor-pointer hover:bg-gray-100 transition"
-          >
+            v-for="paciente in pacientesMock"
+            :key="paciente.id"
+            :to="`/PatientDetails`"
+
+            class="flex justify-between items-center bg-white rounded-md px-4 py-3 mb-3 h-25 shadow cursor-pointer hover:bg-gray-100 transition">
 
             <div class="flex items-center space-x-3">
               <div
                 class="w-4 h-4 rounded-full"
                 :class="{
-                  'bg-red-500': patient.severity === 'grave',
-                  'bg-yellow-400': patient.severity === 'moderado',
-                  'bg-green-500': patient.severity === 'leve'
+                  'bg-red-500': paciente.prioridad === 'Alta',
+                  'bg-yellow-400': paciente.prioridad === 'Media',
+                  'bg-green-500': paciente.prioridad === 'Baja'
                 }"
               ></div>
-              <h3 class="text-xl font-semibold text-gray-800">{{ patient.name }}</h3>
+              <h3 class="text-xl font-semibold text-gray-800">{{ paciente.nombre }} {{ paciente.apellido }}</h3>
             </div>
 
-            <p class="text-sm text-gray-600 mt-1">Edad: {{ patient.age }}</p>
-            <p class="text-sm text-gray-600">Diagnóstico: {{ patient.diagnosis }}</p>
-            <p class="text-sm text-gray-600">Teléfono: {{ patient.phone }}</p>
+            <p class="text-sm text-gray-600 mt-1">Edad: {{ paciente.edad }}</p>
+            <p class="text-sm text-gray-600">Diagnóstico: {{ paciente.enfermedad }}</p>
+            <p class="text-sm text-gray-600">Dias Hospitalización: {{ paciente.diasHospitalizacion }}</p>
           </router-link>
         </div>
 
-        <div class="flex justify-end mt-4 pt-5">
+        <div class="flex justify-between mt-4 pt-5">
+          <RouterLink to="/Home">
+            <button class="bg-[#405F77] hover:bg-[#759AAB] text-white px-6 py-2 rounded-md cursor-pointer">Volver</button>
+          </RouterLink>
+
           <RouterLink to="/NewPatient">
             <button class="bg-[#405F77] hover:bg-[#759AAB] text-white px-4 py-2 rounded-md text-sm shadow cursor-pointer">
               Nuevo Paciente
@@ -66,21 +70,13 @@
   </div>
 </template>
 
-<script setup lang="ts">
-interface Patient {
-  name: string;
-  age: number;
-  diagnosis: string;
-  phone: string;
-  severity: string;
-}
+<script lang="ts" setup>
+import { pacientesMock } from '@/data/patients';
+import { useRouter } from 'vue-router';
 
-const patients: Patient[] = [
-  { name: 'nombre', age: 22, diagnosis: 'enf', phone: '123-456-789', severity: 'grave' },
-  { name: 'nombre', age: 22, diagnosis: 'enf', phone: '123-456-789', severity: 'grave' },
-  { name: 'nombre', age: 22, diagnosis: 'enf', phone: '123-456-789', severity: 'moderado' },
-  { name: 'nombre', age: 22, diagnosis: 'enf', phone: '123-456-789', severity: 'moderado' },
-  { name: 'nombre', age: 22, diagnosis: 'enf', phone: '123-456-789', severity: 'leve' },
-  { name: 'nombre', age: 22, diagnosis: 'enf', phone: '123-456-789', severity: 'leve' }
-]
+const router = useRouter();
+
+function verDetalle(id: number) {
+  router.push({ name: 'DetallePaciente', params: { id } });
+}
 </script>
